@@ -4,7 +4,7 @@
 </br> 
 * Author: Abhinav Thomas
 </br> 
-* URL: https://github.com/abhinavthomas/YouTube-Grabber
+* URL: https://github.com/abhinavthomas/Youtube-Grabber
 </br> 
 * License: GPL v2 or Later
 </br></br>
