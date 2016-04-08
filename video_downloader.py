@@ -1,7 +1,7 @@
 #!/usr/bin/env/python
 """
 	Script to download from youtube playlist.
-	Creative Commons (c)Abhinav Thomas
+	Author : Abhinav Thomas
 	
 """
 import pickle
