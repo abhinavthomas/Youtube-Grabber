@@ -8,4 +8,4 @@ def doit():
 if __name__ == "__main__":
     while True:
         doit()
-        time.sleep(60) # 60 seconds = 1 minutes
+        time.sleep(3600) # 3600 seconds = 1 hour
