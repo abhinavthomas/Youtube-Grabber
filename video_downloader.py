@@ -56,25 +56,36 @@ def display(v):
 	print "Rating	: ",v.rating
 	print "Author	: ",v.author
 	print "Views	: ",v.viewcount
-	for s in v.allstreams:
+	for s in v.videostreams:
 	    print(s.mediatype, s.extension, s.quality)
 	print "=========Downloading best quality video==========="
 	logging.info("=========Downloading best quality video===========")
 
 def downloader():
-	try:
-		import pafy	
-	except ImportError:
+	while(True):
+
 		try:
-			system("sudo pip install pafy")
-			logging.info("pafy has installed...")
-		except:
-			logging.error("couldn't install pafy")
-			system("wget https://bootstrap.pypa.io/get-pip.py")
-			logging.info("trying to install pip..")
-			system("sudo python get-pip.py")
-			logging.info("Successfully installed pip...")
-	
+			import pafy
+			break
+
+		except ImportError:
+			print "Inside exception ImportError"
+			from os import system
+
+			try:
+				print "trying pafy installation"
+				system("sudo pip install pafy")
+				logging.info("pafy has installed...")
+				print "pip installation finished"
+			except:
+				print "Couldn't install pip. Inside pip exception"
+				logging.error("couldn't install pafy")
+				system("wget https://bootstrap.pypa.io/get-pip.py")
+				logging.info("trying to install pip..")
+				system("sudo python get-pip.py")
+				logging.info("Successfully installed pip...")
+				print "pip already install"
+
 	to_download=0 
 	downloaded = download_stack_reader()
 	url = urlfetch()
@@ -92,9 +103,11 @@ def downloader():
 				filename = download_url.download()
 				logging.info("Downloading...")
 				download_stack_updater(video.videoid)
+			else:
+				print "Video already downloaded"
 			logging.info("stack updated with new value")
 			to_download+=1
-			
+
 		except IndexError:
 			print "Downloading finished"
 			logging.info("download finished")
@@ -106,4 +119,4 @@ if __name__=='__main__':
 	print "All rights reserved.."
 	while True:
 	        downloader()
-        	time.sleep(3600) # 3600 seconds = 1 hourdownloader()
+        	time.sleep(3600) # 3600 seconds = 1 hour
