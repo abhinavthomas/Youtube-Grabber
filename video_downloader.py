@@ -6,6 +6,7 @@
 """
 import pickle
 import logging
+import time
 
 def urlfetch():
 	try:
@@ -101,6 +102,8 @@ def downloader():
 
 if __name__=='__main__':
 	logging.basicConfig(filename="downloader_log.log", level=logging.DEBUG)
-	print "Creative Commons... (cc) Abhinav Thomas .."
+	print "GPL... (c) Abhinav Thomas .."
 	print "All rights reserved.."
-	downloader()
+	while True:
+	        downloader()
+        	time.sleep(3600) # 3600 seconds = 1 hourdownloader()
