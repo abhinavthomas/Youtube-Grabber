@@ -142,9 +142,7 @@ def downloader():
                 display(video,'v')
                 download_url = video.getbest()
                 logging.info("Video found")
-                os.chdir('./video')
                 filename = download_url.download()
-                os.chdir('../')
                 logging.info("Downloading...")
                 v_download_stack_updater(video.videoid)
             else:
@@ -166,9 +164,7 @@ def downloader():
                 display(video,'a')
                 download_url = video.getbestaudio()
                 logging.info("Audio found")
-                os.chdir('./audio')
                 filename = download_url.download()
-                os.chdir('../')
                 logging.info("Downloading...")
                 a_download_stack_updater(video.videoid)
             else:
